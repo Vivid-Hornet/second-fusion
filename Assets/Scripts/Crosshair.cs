@@ -5,19 +5,29 @@ using UnityEngine;
 public class Crosshair : MonoBehaviour
 {
     // Start is called before the first frame update
-    private void Start()
-    {
+    private void Start() {
+
         Cursor.visible = false;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.visible = true;
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+
+            if (Cursor.visible == true) {
+                Cursor.visible = false;
+            }
+            else if (Cursor.visible == false) {
+                Cursor.visible = true;
+            }
+
         }
 
-        transform.position = Input.mousePosition;
+        if (Cursor.visible == false) {
+
+            transform.position = Input.mousePosition;
+        }
+        Debug.Log(Cursor.visible);
     }
 }
